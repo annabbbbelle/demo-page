@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Ensures proper scaling on mobile phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Web Development Class</title>
   <style>
     body {
@@ -9,17 +11,21 @@
       background-color: #eef2f5;
       color: #333333;
       margin: 0;
-      padding: 40px 20px;
+      padding: 20px;
       display: flex;
       justify-content: center;
+      align-items: center; /* Centers card vertically */
+      min-height: 100vh;  /* Takes up full viewport height */
+      box-sizing: border-box;
     }
 
     .card {
       background-color: #ffffff;
       max-width: 500px;
+      width: 100%;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       text-align: center;
     }
 
@@ -42,33 +48,39 @@
       line-height: 1.6;
     }
 
-    /* Styling for the link */
+    /* Styled Link as a Button */
     .website-link {
       display: inline-block;
       margin-top: 15px;
-      color: #1a5276;
+      padding: 12px 20px;
+      background-color: #1a5276;
+      color: #ffffff;
       font-weight: bold;
       text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
     }
 
     .website-link:hover {
-      text-decoration: underline;
+      background-color: #154360;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
+  <!-- Semantic tag replacing general div for better structure -->
+  <main class="card">
     <img src="travel.jpg" alt="My travel photo" class="profile-img">
 
     <h1>Introduction to Web Development</h1>
     <p>Welcome to my first webpage! In this class, we are learning how to build and host real websites using HTML, GitHub, and GitHub Pages.</p>
 
-    <!-- Clickable External Link -->
+    <!-- External Link Button -->
     <a href="https://www.youtube.com/watch?v=kMcb40uhRjA" target="_blank" rel="noopener noreferrer" class="website-link">
       Check out my favorite site!
     </a>
-  </div>
+  </main>
 
 </body>
 </html>
