@@ -4,45 +4,52 @@
   <meta charset="UTF-8">
   <title>My Web Development Class</title>
   <style>
-    /* 1. Page Background & Font */
     body {
       font-family: Arial, sans-serif;
-      background-color: #eef2f5; /* Soft light blue-gray background */
-      color: #333333;           /* Dark charcoal text color */
+      background-color: #eef2f5;
+      color: #333333;
       margin: 0;
       padding: 40px 20px;
       display: flex;
       justify-content: center;
     }
 
-    /* 2. Container Card */
     .card {
-      background-color: #ffffff; /* White card background */
+      background-color: #ffffff;
       max-width: 500px;
       padding: 30px;
-      border-radius: 10px;       /* Soft rounded corners */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
-    /* 3. Heading Style */
+    /* Resizes image to fit inside the card container smoothly */
+    .profile-img {
+      max-width: 100%;       /* Prevents image from overflowing the box */
+      height: auto;          /* Maintains the image's original proportions */
+      border-radius: 8px;    /* Optional: Rounds the corners of the image */
+      margin-bottom: 20px;   /* Adds space below the image */
+    }
+
     h1 {
-      color: #1a5276;            /* Deep blue text color */
+      color: #1a5276;
       margin-top: 0;
       font-size: 26px;
     }
 
-    /* 4. Paragraph Style */
     p {
-      color: #555555;            /* Medium gray text color */
+      color: #555555;
       font-size: 16px;
-      line-height: 1.6;          /* Adds extra space between lines */
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
   <div class="card">
+    <!-- Image Tag -->
+    <img src="my-photo.jpg" alt="A scenic mountain view under a clear blue sky" class="profile-img">
+
     <h1>Introduction to Web Development</h1>
     <p>Welcome to my first webpage! In this class, we are learning how to build and host real websites using HTML, GitHub, and GitHub Pages.</p>
   </div>
