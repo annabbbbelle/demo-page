@@ -23,12 +23,11 @@
       text-align: center;
     }
 
-    /* Resizes image to fit inside the card container smoothly */
     .profile-img {
-      max-width: 100%;       /* Prevents image from overflowing the box */
-      height: auto;          /* Maintains the image's original proportions */
-      border-radius: 8px;    /* Optional: Rounds the corners of the image */
-      margin-bottom: 20px;   /* Adds space below the image */
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
 
     h1 {
@@ -42,16 +41,33 @@
       font-size: 16px;
       line-height: 1.6;
     }
+
+    /* Styling for the link */
+    .website-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #1a5276;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .website-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <!-- Image Tag -->
-    <img src="travel.jpg" alt="A scenic mountain view under a clear blue sky with a blue bus on the bottom." class="profile-img">
+    <img src="travel.jpg" alt="My travel photo" class="profile-img">
 
     <h1>Introduction to Web Development</h1>
     <p>Welcome to my first webpage! In this class, we are learning how to build and host real websites using HTML, GitHub, and GitHub Pages.</p>
+
+    <!-- Clickable External Link -->
+    <a href="https://www.youtube.com/watch?v=kMcb40uhRjA" target="_blank" rel="noopener noreferrer" class="website-link">
+      Check out my favorite site!
+    </a>
   </div>
 
 </body>
