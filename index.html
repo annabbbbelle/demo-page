@@ -1,86 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
   <meta charset="UTF-8">
-  <!-- Ensures proper scaling on mobile phones -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Web Development Class</title>
+  <title>My Web Development Journey</title> 
+  
+  <!-- Custom Font import from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --text-main: #0f172a;
+      --text-sub: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #eef2f5;
-      color: #333333;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
       margin: 0;
       padding: 20px;
       display: flex;
       justify-content: center;
-      align-items: center; /* Centers card vertically */
-      min-height: 100vh;  /* Takes up full viewport height */
-      box-sizing: border-box;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .card {
-      background-color: #ffffff;
-      max-width: 500px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      max-width: 480px;
       width: 100%;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 32px 28px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .profile-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .img-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
       margin-bottom: 20px;
     }
 
+    .profile-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .img-container:hover .profile-img {
+      transform: scale(1.05);
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.65);
+      color: #ffffff;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
     h1 {
-      color: #1a5276;
-      margin-top: 0;
-      font-size: 26px;
+      color: var(--text-main);
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      font-weight: 700;
     }
 
     p {
-      color: #555555;
-      font-size: 16px;
+      color: var(--text-sub);
+      font-size: 15px;
       line-height: 1.6;
+      margin: 0 0 20px 0;
     }
 
-    /* Styled Link as a Button */
-    .website-link {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      background-color: #1a5276;
+    /* Skill tags */
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .skill-tag {
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 12px;
+    }
+
+    /* Button Link */
+    .website-link { 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary);
       color: #ffffff;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 15px;
       text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      border-radius: 10px;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
     }
 
     .website-link:hover {
-      background-color: #154360;
+      background-color: var(--primary-hover);
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    }
+
+    /* Dynamic Interactive Button */
+    .like-btn {
+      margin-top: 14px;
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-sub);
+      transition: all 0.2s ease;
+    }
+
+    .like-btn:hover {
+      border-color: #ef4444;
+      color: #ef4444;
+      background: #fef2f2;
     }
   </style>
 </head>
 <body>
 
-  <!-- Semantic tag replacing general div for better structure -->
-  <main class="card">
-    <img src="travel.jpg" alt="My travel photo" class="profile-img">
+  <main class="card"> <!-- This is my image of a traveling phoot -->
+    <div class="img-container">
+      <img src="travel.jpg" alt="My travel photo" class="profile-img"> 
+      <span class="badge">✈️ Travel Snap</span>
+    </div>
 
-    <h1>Introduction to Web Development</h1>
+    <h1>Introduction to Web Development</h1> <!-- This is my heading -->
     <p>Welcome to my first webpage! In this class, we are learning how to build and host real websites using HTML, GitHub, and GitHub Pages.</p>
 
-    <!-- External Link Button -->
+    <div class="skills-container">
+      <span class="skill-tag">HTML5</span>
+      <span class="skill-tag">CSS3</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">GitHub Pages</span>
+    </div>
+
     <a href="https://www.youtube.com/watch?v=kMcb40uhRjA" target="_blank" rel="noopener noreferrer" class="website-link">
-      Check out my favorite site!
+      <span>Check out my favorite site!</span>
+      <span>➔</span>
     </a>
+
+    <button class="like-btn" id="likeBtn">❤️ <span id="likeCount">0</span> Likes</button>
   </main>
+
+  <script>
+    let count = 0;
+    const btn = document.getElementById('likeBtn');
+    const countDisplay = document.getElementById('likeCount');
+    
+    btn.addEventListener('click', () => {
+      count++;
+      countDisplay.textContent = count;
+    });
+  </script>
 
 </body>
 </html>
