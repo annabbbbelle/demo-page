@@ -1,49 +1,43 @@
 // Get element references from the HTML DOM
-const myButton = document.getElementById('myButton');
-const dynamicText = document.getElementById('dynamicText');
+const changeTextBtn = document.getElementById('changeTextBtn');
+const submitInputBtn = document.getElementById('submitInputBtn');
+const userInput = document.getElementById('userInput');
+const userInputOutput = document.getElementById('userInputOutput');
 const headingText = document.getElementById('headingText');
+const headingStatusText = document.getElementById('headingStatusText');
 
-// Change text content on button click
-myButton.addEventListener('click', () => {
-  headingText.textContent = "Thanks for Visiting!";
-  dynamicText.textContent = "🎉 You successfully changed the text using JavaScript!";
+// 1. Change Heading Text
+if (changeTextBtn) {
+  changeTextBtn.addEventListener('click', () => {
+    headingText.textContent = "Thanks for Visiting!";
+    if (headingStatusText) {
+      headingStatusText.textContent = "🎉 You successfully changed the text!";
+    }
+  });
+}
 
-  
-});
+// 2. Read Input Box and Display Text on Page
+if (submitInputBtn && userInput && userInputOutput) {
+  submitInputBtn.addEventListener('click', () => {
+    const enteredText = userInput.value;
 
-// Get value from input box and display it on the page
-myButton.addEventListener('click', () => {
-  const enteredText = userInput.value;
+    if (enteredText.trim() === '') {
+      userInputOutput.textContent = 'Please enter some text first!';
+    } else {
+      userInputOutput.textContent = `You entered: "${enteredText}"`;
+      userInput.value = ''; // Clears the input field after submit
+    }
+  });
+}
 
-  if (enteredText.trim() === '') {
-    dynamicText.textContent = 'Please enter some text first!';
-  } else {
-    dynamicText.textContent = `You entered: "${enteredText}"`;
-    userInput.value = ''; // Clears the input field after submit
-  }
-});
-
-const myButton = document.getElementById('myButton');
-let isDark = false;
-
-myButton.addEventListener('click', () => {
-  if (!isDark) {
-    document.body.style.background = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)';
-    document.body.style.color = '#ffffff';
-    isDark = true;
-  } else {
-    document.body.style.background = 'linear-gradient(135deg, #dcebfa 0%, #A63956 100%)';
-    document.body.style.color = '#0f172a';
-    isDark = false;
-  }
-});
-
-// Like Counter logic
+// 3. Like Counter Logic
 let count = 0;
 const likeBtn = document.getElementById('likeBtn');
 const countDisplay = document.getElementById('likeCount');
 
-likeBtn.addEventListener('click', () => {
-  count++;
-  countDisplay.textContent = count;
-});
+if (likeBtn && countDisplay) {
+  likeBtn.addEventListener('click', () => {
+    count++;
+    countDisplay.textContent = count;
+  });
+}
