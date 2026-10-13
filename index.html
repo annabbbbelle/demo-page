@@ -104,8 +104,25 @@
       margin: 0 0 10px 0;
     }
 
+    /* Text Input Styling */
+    .text-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+    }
+
+    .text-input:focus {
+      border-color: var(--primary);
+    }
+
     .action-btn {
-      margin-bottom: 15px;
+      width: 100%;
+      margin-bottom: 12px;
       padding: 10px 20px;
       background-color: var(--primary);
       color: white;
@@ -124,6 +141,7 @@
       font-weight: 600;
       color: #2563eb;
       min-height: 24px;
+      margin-bottom: 15px;
     }
 
     .spotify-link {
@@ -166,24 +184,17 @@
       <span class="badge">✈️ Travel Snap</span>
     </div>
 
-    <!-- Heading target for text change -->
     <h1 id="headingText">Welcome to my Website!</h1>
     <p>Welcome to my first webpage! In this class, we are learning how to build and host real websites using HTML, GitHub, and GitHub Pages.</p>
 
-    <!-- Button to trigger text change -->
-    <button id="myButton" class="action-btn">Change Text</button>
+    <!-- Button 1: Change Text -->
+    <button id="changeTextBtn" class="action-btn">Change Text</button>
+    <p id="headingStatusText" class="dynamic-message">Click the button above to see what happens!</p>
 
-    <!-- Paragraph target that displays dynamic text -->
-    <p id="dynamicText" class="dynamic-message">Click the button above to see what happens!</p>
-
-    <!-- Text Box Input -->
+    <!-- Button 2: Text Box Input & Display -->
     <input type="text" id="userInput" placeholder="Type something here..." class="text-input">
-
-    <!-- Submit Button -->
-    <button id="myButton" class="action-btn">Display Message</button>
-
-    <!-- Target output paragraph -->
-    <p id="dynamicText" class="dynamic-message">Your custom message will appear here!</p>
+    <button id="submitInputBtn" class="action-btn">Display Message</button>
+    <p id="userInputOutput" class="dynamic-message">Your custom message will appear here!</p>
 
     <h2>All About Me</h2>
     <p>1. My favorite color is red</p> 
