@@ -11,6 +11,18 @@ myButton.addEventListener('click', () => {
   
 });
 
+// Get value from input box and display it on the page
+myButton.addEventListener('click', () => {
+  const enteredText = userInput.value;
+
+  if (enteredText.trim() === '') {
+    dynamicText.textContent = 'Please enter some text first!';
+  } else {
+    dynamicText.textContent = `You entered: "${enteredText}"`;
+    userInput.value = ''; // Clears the input field after submit
+  }
+});
+
 const myButton = document.getElementById('myButton');
 let isDark = false;
 
