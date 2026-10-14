@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..800;1,400..800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
-
 /* ==========================================================================
    Design System Variables
    Colors: Deep Navy Blue & Dark Burgundy Red
@@ -7,18 +5,19 @@
    ========================================================================== */
 :root {
   /* Color Palette */
-  --primary-blue: #1e3a8a;        /* Deep navy blue */
-  --primary-hover: #1d4ed8;       /* Medium blue for hover */
-  --accent-red: #8b0000;          /* Dark burgundy red */
-  --bg-light: #f1f5f9;            /* Soft light background */
-  --surface: #ffffff;             /* Card background */
-  --text-dark: #1e293b;           /* Main readable body text */
-  --text-muted: #475569;          /* Subdued caption text */
-  --border: #e2e8f0;              /* Soft dividers */
+  --primary-blue: #1e3a8a;       /* Deep navy blue */
+  --primary-hover: #1d4ed8;      /* Medium blue for hover */
+  --accent-red: #8b0000;         /* Dark burgundy red */
+  --accent-hover: #991b1b;       /* Slightly lighter red for hover */
+  --bg-light: #f1f5f9;           /* Soft light background */
+  --surface: #ffffff;            /* Card background */
+  --text-dark: #1e293b;          /* Main readable body text */
+  --text-muted: #475569;         /* Subdued caption text */
+  --border: #e2e8f0;             /* Soft dividers */
   
   /* Typography */
   --font-heading: 'Alegreya', Georgia, serif;
-  --font-body: 'Alegreya Sans', system-ui, sans-serif;
+  --font-body: 'Alegreya Sans', system-ui, -apple-system, sans-serif;
   --line-height-double: 1.8;
   
   /* Structure & Elevation */
@@ -37,8 +36,10 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -130,107 +131,3 @@ p {
 
 .img-container:hover .profile-img {
   transform: scale(1.04);
-}
-
-.badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(30, 58, 138, 0.85); /* Dark Navy Glass */
-  color: #ffffff;
-  padding: 4px 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
-}
-
-/* ==========================================================================
-   Interactive Buttons, Inputs & Messages
-   ========================================================================== */
-.text-input {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  margin-bottom: 10px;
-  outline: none;
-  line-height: 1.2;
-}
-
-.text-input:focus {
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
-}
-
-.action-btn {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 12px 20px;
-  background-color: var(--primary-blue);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  line-height: 1.2;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.action-btn:hover {
-  background-color: var(--accent-red);
-}
-
-.action-btn:active {
-  transform: scale(0.98);
-}
-
-.dynamic-message {
-  font-weight: 600;
-  color: var(--primary-blue);
-  min-height: 24px;
-  margin-bottom: 16px;
-  line-height: 1.4;
-}
-
-/* Spotify Link */
-.spotify-link {
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--primary-blue);
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 2px solid var(--accent-red);
-  transition: all 0.2s ease;
-}
-
-.spotify-link:hover {
-  color: var(--accent-red);
-  border-bottom-color: var(--primary-blue);
-}
-
-/* Like Counter Button */
-.like-btn {
-  margin-top: 16px;
-  background: transparent;
-  border: 1px solid var(--border);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
-  line-height: 1.2;
-}
-
-.like-btn:hover {
-  border-color: var(--accent-red);
-  color: var(--accent-red);
-  background-color: #fef2f2;
-}
