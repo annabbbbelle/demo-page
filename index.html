@@ -37,6 +37,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      transition: background 0.4s ease;
     }
 
     .card {
@@ -107,7 +108,6 @@
       margin: 0 0 10px 0;
     }
 
-    /* Text Input Styling */
     .text-input {
       width: 100%;
       padding: 10px 14px;
@@ -194,12 +194,21 @@
     <button id="changeTextBtn" class="action-btn">Change Text</button>
     <p id="headingStatusText" class="dynamic-message">Click the button above to see what happens!</p>
 
-    <!-- Button 2: Interactive Mood Checker (If / Else Section) -->
+    <!-- Button 2: Interactive Mood Checker -->
     <h2>Interactive Mood Checker</h2>
     <p>How are you feeling today?</p>
     <input type="text" id="userInput" placeholder="e.g. happy, tired, excited..." class="text-input">
     <button id="submitBtn" class="action-btn">Submit Mood</button>
     <p id="outputMessage" class="dynamic-message">Your mood response will appear here!</p>
+
+    <!-- Button 3: Random Background Color Generator -->
+    <h2>Random Background Color</h2>
+    <button id="colorBtn" class="action-btn">Change Background Color</button>
+
+    <!-- Button 4: Random Fact Generator -->
+    <h2>Random Fact Generator</h2>
+    <button id="factBtn" class="action-btn">Get a Random Fact</button>
+    <p id="factOutput" class="dynamic-message">Click the button to learn a fun fact!</p>
 
     <h2>All About Me</h2>
     <p>1. My favorite color is red</p> 
