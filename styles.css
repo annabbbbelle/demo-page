@@ -2,17 +2,16 @@
 
 /* ==========================================================================
    Design System Variables
-   Colors: Deep Blue & Dark Red
-   Typography: Alegreya (Serif Header / Sans Body)
-   Spacing: Double Line Spacing
+   Colors: Deep Navy Blue & Dark Crimson Red
+   Background: Soft Slate-Gray (#f8fafc) for depth and contrast
    ========================================================================== */
 :root {
   /* Color Palette */
   --primary-blue: #1e3a8a;        /* Deep navy blue */
-  --accent-red: #8b0000;          /* Dark burgundy red */
-  --bg-light: #fafafa;            /* Clean light background */
-  --surface: #ffffff;             /* Card background */
-  --text-dark: #1e293b;           /* Main readable body text */
+  --accent-red: #8b0000;          /* Dark crimson red */
+  --bg-light: #f8fafc;            /* Professional soft slate background */
+  --surface: #ffffff;             /* Crisp white card background */
+  --text-dark: #0f172a;           /* Slate text for legibility */
   --text-muted: #475569;          /* Subdued caption / meta text */
   --border: #e2e8f0;              /* Soft dividers */
   
@@ -23,13 +22,13 @@
   
   /* Spacing & Structure */
   --max-width: 800px;
-  --radius: 8px;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --radius: 10px;
+  --shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.12);
 }
 
 /* ==========================================================================
-   Base Reset & Clean Layout
+   Base Reset & Centered Layout
    ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -39,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-light);
 }
 
 body {
@@ -47,10 +47,55 @@ body {
   line-height: var(--line-height-double);
   color: var(--text-dark);
   background-color: var(--bg-light);
+  
+  /* Layout Centering */
   max-width: var(--max-width);
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 4rem 1.5rem 3rem 1.5rem;
+  padding: 4rem 1.5rem;
+  
   -webkit-font-smoothing: antialiased;
+}
+
+/* Header Centering & Spacing */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Nav Links Centered */
+.nav-links, nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.nav-links a, nav a {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--surface);
+  color: var(--primary-blue);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.25s ease;
+}
+
+.nav-links a:hover, nav a:hover {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -90,7 +135,6 @@ p {
   line-height: var(--line-height-double);
 }
 
-/* Link Styling */
 a {
   color: var(--primary-blue);
   text-decoration: none;
@@ -105,7 +149,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   Travel & Hiking Image Layouts
+   Travel & Hiking Images Layouts
    ========================================================================== */
 img {
   max-width: 100%;
@@ -114,10 +158,10 @@ img {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   object-fit: cover;
+  margin: 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Main Hero / Banner Image for Trails & Destinations */
 .hero-img,
 header img {
   width: 100%;
@@ -127,7 +171,6 @@ header img {
   border-bottom: 4px solid var(--accent-red);
 }
 
-/* Multi-Column Travel Photo Gallery Grid */
 .photo-grid, .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -140,11 +183,10 @@ header img {
   box-shadow: var(--shadow-hover);
 }
 
-/* Image Figures with Captions */
 figure {
   margin: 2rem 0;
   background-color: var(--surface);
-  padding: 0.85rem;
+  padding: 1rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
@@ -161,7 +203,7 @@ figcaption {
 }
 
 /* ==========================================================================
-   Cards, Navigation & Components
+   Cards & Content Containers
    ========================================================================== */
 .card, .trip-card, .project-card {
   background-color: var(--surface);
@@ -180,40 +222,13 @@ figcaption {
   box-shadow: var(--shadow-hover);
 }
 
-/* Navigation Links */
-.nav-links, nav {
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  margin: 2rem 0;
-}
-
-.nav-links a, nav a {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.05rem;
-  padding: 0.5rem 1.25rem;
-  background-color: var(--surface);
-  color: var(--primary-blue);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  border-bottom: none;
-  box-shadow: var(--shadow);
-}
-
-.nav-links a:hover, nav a:hover {
-  background-color: var(--primary-blue);
-  color: #ffffff;
-  border-color: var(--primary-blue);
-}
-
 /* ==========================================================================
    Footer
    ========================================================================== */
 footer {
   margin-top: 5rem;
   padding-top: 2rem;
-  border-top: 2px solid var(--border);
+  border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 0.95rem;
   text-align: center;
