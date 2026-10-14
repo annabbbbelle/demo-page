@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Web Development Journey</title> 
 
-  <!-- Link external CSS stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-
   <!-- External JavaScript File -->
   <script src="script.js" defer></script>
 
-  <!-- Custom Font import from Google Fonts -->
+  <!-- Custom Font Import from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
@@ -41,7 +38,7 @@
     }
 
     .card {
-      background: rgba(240, 214, 221);
+      background: rgba(240, 214, 221, 0.95);
       backdrop-filter: blur(10px);
       max-width: 480px;
       width: 100%;
@@ -97,15 +94,17 @@
     }
 
     h2 {
-      margin-top: 20px;
+      margin-top: 24px;
       margin-bottom: 10px;
+      font-size: 20px;
     }
 
-    p {
+    p, label {
       color: var(--text-sub);
       font-size: 15px;
       line-height: 1.6;
       margin: 0 0 10px 0;
+      display: block;
     }
 
     .text-input {
@@ -121,23 +120,29 @@
 
     .text-input:focus {
       border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
     }
 
     .action-btn {
       width: 100%;
       margin-bottom: 12px;
-      padding: 10px 20px;
+      padding: 12px 20px;
       background-color: var(--primary);
       color: white;
       border: none;
       border-radius: 10px;
       font-weight: 600;
+      font-size: 15px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      transition: background-color 0.2s ease, transform 0.1s ease;
     }
 
     .action-btn:hover {
       background-color: var(--primary-hover);
+    }
+
+    .action-btn:active {
+      transform: scale(0.98);
     }
 
     .dynamic-message {
@@ -191,23 +196,23 @@
     <p>Welcome to my first webpage! In this class, we are learning how to build and host real websites using HTML, GitHub, and GitHub Pages.</p>
 
     <!-- Button 1: Change Text -->
-    <button id="changeTextBtn" class="action-btn">Change Text</button>
+    <button type="button" id="changeTextBtn" class="action-btn">Change Text</button>
     <p id="headingStatusText" class="dynamic-message">Click the button above to see what happens!</p>
 
     <!-- Button 2: Interactive Mood Checker -->
     <h2>Interactive Mood Checker</h2>
-    <p>How are you feeling today?</p>
+    <label for="userInput">How are you feeling today?</label>
     <input type="text" id="userInput" placeholder="e.g. happy, tired, excited..." class="text-input">
-    <button id="submitBtn" class="action-btn">Submit Mood</button>
+    <button type="button" id="submitBtn" class="action-btn">Submit Mood</button>
     <p id="outputMessage" class="dynamic-message">Your mood response will appear here!</p>
 
     <!-- Button 3: Random Background Color Generator -->
     <h2>Random Background Color</h2>
-    <button id="colorBtn" class="action-btn">Change Background Color</button>
+    <button type="button" id="colorBtn" class="action-btn">Change Background Color</button>
 
     <!-- Button 4: Random Fact Generator -->
     <h2>Random Fact Generator</h2>
-    <button id="factBtn" class="action-btn">Get a Random Fact</button>
+    <button type="button" id="factBtn" class="action-btn">Get a Random Fact</button>
     <p id="factOutput" class="dynamic-message">Click the button to learn a fun fact!</p>
 
     <h2>All About Me</h2>
@@ -222,7 +227,7 @@
     </div>
 
     <!-- Like Button -->
-    <button class="like-btn" id="likeBtn">❤️ <span id="likeCount">0</span> Likes</button>
+    <button type="button" class="like-btn" id="likeBtn">❤️ <span id="likeCount">0</span> Likes</button>
   </main>
 
 </body>
