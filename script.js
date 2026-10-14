@@ -13,30 +13,43 @@ if (changeTextBtn) {
 }
 
 // =============================================================
-// 2. MOOD CHECKER (IF / ELSE)
+// 2. MOOD CHECKER (IF / ELSE & ENTER KEY SUPPORT)
 // =============================================================
 const userInput = document.getElementById("userInput");
 const submitBtn = document.getElementById("submitBtn");
 const outputMessage = document.getElementById("outputMessage");
 
-if (submitBtn) {
-  submitBtn.addEventListener("click", function() {
-    const text = userInput.value.trim().toLowerCase();
+function handleMoodSubmit() {
+  const text = userInput.value.trim().toLowerCase();
 
-    if (text === "") {
-      outputMessage.textContent = "Please enter something in the box first!";
-    } 
-    else if (text === "happy" || text === "excited") {
-      outputMessage.textContent = "Awesome! Keep that high energy going! 🎉";
-    } 
-    else if (text === "tired" || text === "sleepy") {
-      outputMessage.textContent = "Get some rest or grab a cup of water! 😴";
-    } 
-    else if (text === "sad") {
-      outputMessage.textContent = "Sorry you're feeling down. Hope your day improves! ❤️";
-    } 
-    else {
-      outputMessage.textContent = `You typed: "${userInput.value}". Thanks for sharing! ✨`;
+  if (text === "") {
+    outputMessage.textContent = "Please enter something in the box first!";
+    return;
+  } 
+  
+  if (text === "happy" || text === "excited") {
+    outputMessage.textContent = "Awesome! Keep that high energy going! 🎉";
+  } else if (text === "tired" || text === "sleepy") {
+    outputMessage.textContent = "Get some rest or grab a cup of water! 😴";
+  } else if (text === "sad") {
+    outputMessage.textContent = "Sorry you're feeling down. Hope your day improves! ❤️";
+  } else {
+    outputMessage.textContent = `You typed: "${userInput.value}". Thanks for sharing! ✨`;
+  }
+
+  // Clear input box after submitting
+  userInput.value = "";
+}
+
+if (submitBtn) {
+  submitBtn.addEventListener("click", handleMoodSubmit);
+}
+
+// Allow pressing "Enter" key in input field
+if (userInput) {
+  userInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      handleMoodSubmit();
     }
   });
 }
@@ -48,15 +61,15 @@ const colorBtn = document.getElementById("colorBtn");
 
 if (colorBtn) {
   colorBtn.addEventListener("click", () => {
+    // Generate soft, bright hex colors to preserve readability
     const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
-    // Overrides background gradients and solid colors
     document.body.style.backgroundImage = "none";
     document.body.style.backgroundColor = randomColor;
   });
 }
 
 // =============================================================
-// 4. RANDOM FACT GENERATOR
+// 4. RANDOM FACT GENERATOR (NO REPEATS BACK-TO-BACK)
 // =============================================================
 const factBtn = document.getElementById("factBtn");
 const factOutput = document.getElementById("factOutput");
@@ -69,9 +82,18 @@ const facts = [
   "A single cloud can weigh over 1 million pounds."
 ];
 
-if (factBtn) {
+let lastFactIndex = -1;
+
+if (factBtn && factOutput) {
   factBtn.addEventListener("click", () => {
-    const randomIndex = Math.floor(Math.random() * facts.length);
+    let randomIndex;
+    
+    // Pick a new index that is different from the previous one
+    do {
+      randomIndex = Math.floor(Math.random() * facts.length);
+    } while (randomIndex === lastFactIndex && facts.length > 1);
+
+    lastFactIndex = randomIndex;
     factOutput.textContent = facts[randomIndex];
   });
 }
@@ -83,7 +105,7 @@ const likeBtn = document.getElementById("likeBtn");
 const likeCount = document.getElementById("likeCount");
 let count = 0;
 
-if (likeBtn) {
+if (likeBtn && likeCount) {
   likeBtn.addEventListener("click", () => {
     count++;
     likeCount.textContent = count;
