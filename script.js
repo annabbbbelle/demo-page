@@ -1,16 +1,20 @@
-// 1. Change Text Button
-const changeTextBtn = document.getElementById('changeTextBtn');
-const headingText = document.getElementById('headingText');
-const headingStatusText = document.getElementById('headingStatusText');
+// =============================================================
+// 1. CHANGE HEADING TEXT
+// =============================================================
+const changeTextBtn = document.getElementById("changeTextBtn");
+const headingText = document.getElementById("headingText");
+const headingStatusText = document.getElementById("headingStatusText");
 
 if (changeTextBtn) {
-  changeTextBtn.addEventListener('click', () => {
-    headingText.textContent = "Thanks for Visiting!";
-    headingStatusText.textContent = "🎉 You successfully changed the text!";
+  changeTextBtn.addEventListener("click", () => {
+    headingText.textContent = "Thanks for Visiting! 🎉";
+    headingStatusText.textContent = "You successfully changed the text!";
   });
 }
 
-// 2. Interactive Mood Checker (If / Else Logic)
+// =============================================================
+// 2. MOOD CHECKER (IF / ELSE)
+// =============================================================
 const userInput = document.getElementById("userInput");
 const submitBtn = document.getElementById("submitBtn");
 const outputMessage = document.getElementById("outputMessage");
@@ -37,19 +41,25 @@ if (submitBtn) {
   });
 }
 
-// 3. Random Background Color Generator
-const colorBtn = document.getElementById('colorBtn');
+// =============================================================
+// 3. RANDOM BACKGROUND COLOR GENERATOR
+// =============================================================
+const colorBtn = document.getElementById("colorBtn");
 
 if (colorBtn) {
-  colorBtn.addEventListener('click', () => {
-    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-    document.body.style.background = randomColor;
+  colorBtn.addEventListener("click", () => {
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
+    // Overrides background gradients and solid colors
+    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundColor = randomColor;
   });
 }
 
-// 4. Random Fact Generator
-const factBtn = document.getElementById('factBtn');
-const factOutput = document.getElementById('factOutput');
+// =============================================================
+// 4. RANDOM FACT GENERATOR
+// =============================================================
+const factBtn = document.getElementById("factBtn");
+const factOutput = document.getElementById("factOutput");
 
 const facts = [
   "Honey never spoils; edible honey was found in ancient Egyptian tombs!",
@@ -60,20 +70,22 @@ const facts = [
 ];
 
 if (factBtn) {
-  factBtn.addEventListener('click', () => {
+  factBtn.addEventListener("click", () => {
     const randomIndex = Math.floor(Math.random() * facts.length);
     factOutput.textContent = facts[randomIndex];
   });
 }
 
-// 5. Like Counter Button
+// =============================================================
+// 5. LIKE COUNTER
+// =============================================================
+const likeBtn = document.getElementById("likeBtn");
+const likeCount = document.getElementById("likeCount");
 let count = 0;
-const likeBtn = document.getElementById('likeBtn');
-const countDisplay = document.getElementById('likeCount');
 
 if (likeBtn) {
-  likeBtn.addEventListener('click', () => {
+  likeBtn.addEventListener("click", () => {
     count++;
-    countDisplay.textContent = count;
+    likeCount.textContent = count;
   });
 }
